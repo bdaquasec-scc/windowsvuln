@@ -46,7 +46,8 @@ jobs:
           curl -sLo install.sh.checksum https://github.com/argonsecurity/releases/releases/latest/download/install.sh.checksum
           #BINDIR="."
           sh install.sh
-          rm install.sh install.sh.checksum
+          rm install.sh 
+          rm install.sh.checksum
           ./billy generate --access-token "${{ secrets.GITHUB_TOKEN }}" --aqua-key "${{ secrets.AQUA_KEY }}" --aqua-secret "${{ secrets.AQUA_SECRET }}" --artifact-path "biagiodesimone/windowsvuln:${{ github.sha }}" 
             # The docker image name:tag of the newly built image
             # --artifact-path "my-image-name:${{ env.tag-version }}" 
