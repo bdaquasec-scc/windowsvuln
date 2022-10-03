@@ -41,7 +41,7 @@ jobs:
           password: ${{ secrets.DOCKER_TOKEN }}
       - name: Manifest Generation
         run: |
-          export BILLY_SERVER=https://prod-aqua-billy.codesec.aquasec.com
+          #export BILLY_SERVER=https://prod-aqua-billy.codesec.aquasec.com
           curl -sLo install.sh download.codesec.aquasec.com/billy/install.sh
           curl -sLo install.sh.checksum https://github.com/argonsecurity/releases/releases/latest/download/install.sh.checksum
           BINDIR="." sh install.sh
