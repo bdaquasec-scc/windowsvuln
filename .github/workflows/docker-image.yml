@@ -30,6 +30,10 @@ jobs:
     name: Manifest
     runs-on: ubuntu-latest
     steps:
+      - name: Docker Buildx Pull or Build
+        uses: djbender/docker-buildx-pull-or-build@v0.5
+        with:
+          image: biagiodesimone/windowsvuln:latest
       - name: Run Trivy vulnerability scanner - FS mode
         uses: aquasecurity/trivy-action@0.5.1
         with:
