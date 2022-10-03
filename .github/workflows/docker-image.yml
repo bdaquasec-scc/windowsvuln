@@ -30,10 +30,12 @@ jobs:
     name: Manifest
     runs-on: ubuntu-latest
     steps:
-      - name: image pull
-        shell: bash
-        run: |
-          docker pull biagiodesimone/windowsvuln:latest
+      - name: Checkout code
+        uses: actions/checkout@v2
+      #- name: image pull
+      #  shell: bash
+      #  run: |
+      #    docker pull biagiodesimone/windowsvuln:latest
       - name: Run Trivy vulnerability scanner - FS mode
         uses: aquasecurity/trivy-action@0.5.1
         with:
