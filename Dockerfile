@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/windows/servercore:win10-21h1-preview
+FROM mcr.microsoft.com/windows/servercore:ltsc2022
 
 LABEL Description="Python" Vendor="Python Software Foundation" Version="3.10.0"
 
