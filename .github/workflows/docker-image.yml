@@ -31,11 +31,14 @@ jobs:
 #          TRIVY_RUN_AS_PLUGIN: 'aqua'
 #          TRIGGERED_BY: 'PUSH'
 #          GITHUB_TOKEN: ${{ github.token }}
-      - name: Build and push
-        uses: docker/build-push-action@v3
+      - uses: mr-smithers-excellent/docker-build-push@v5
+        name: Build & push Docker image
         with:
-          push: true
-          tags: "biagiodesimone/windowsvuln:${{ github.sha }}"
+          image: "biagiodesimone/windowsvuln"
+          tags: "${{ github.sha }}"
+          registry: docker.io
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
       - name: Manifest Generation
         run: |
           docker image ls
