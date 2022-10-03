@@ -22,7 +22,7 @@ jobs:
         name: Build & push Docker image
         with:
           image: "biagiodesimone/windowsvuln"
-          tags: "${{ github.sha }}"
+          tags: "latest"
           registry: docker.io
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
@@ -58,7 +58,7 @@ jobs:
             --access-token "${{ secrets.GITHUB_TOKEN }}" \
             --aqua-key "${{ secrets.AQUA_KEY }}" \
             --aqua-secret "${{ secrets.AQUA_SECRET }}" \
-            --artifact-path "biagiodesimone/windowsvuln:${{ env.tag-version }}" 
+            --artifact-path "biagiodesimone/windowsvuln:latest" 
 
             # The docker image name:tag of the newly built image
             # --artifact-path "my-image-name:${{ env.tag-version }}" 
